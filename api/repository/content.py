@@ -1,15 +1,15 @@
 import json
 
 import psycopg2
-
+from config import config
 from api.extension.json_helper import json_default
 from api.models.content import Domain, Decision, ExchangeRate, Content, Ip
 
-connection = psycopg2.connect(user="danilkonkov",
-                              password="",
-                              host="localhost",
-                              port="5432",
-                              database="motiv")
+connection = psycopg2.connect(user=config['postgresql']['user'],
+                              password=config['postgresql']['password'],
+                              host=config['postgresql']['host'],
+                              port=config['postgresql']['port'],
+                              database=config['postgresql']['database'])
 cursor = connection.cursor()
 
 
